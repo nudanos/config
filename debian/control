@@ -1,9 +1,8 @@
 Source: golang-github-danos-config
 Section: devel
-Priority: extra
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
- debhelper (>= 9),
+Priority: optional
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  dh-golang (>= 1.18),
  dh-vci,
  golang (>= 1.6),
@@ -21,11 +20,14 @@ Build-Depends:
  golang-github-danos-yang-dev,
  golang-github-fsnotify-fsnotify-dev,
  golang-github-go-ini-ini-dev
-Standards-Version: 3.9.8
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/config.git
+Vcs-Browser: https://github.com/nudanos/config
 
 Package: golang-github-danos-config-dev
 Architecture: all
-Depends:
+Depends: 
  golang-dbus-dev,
  golang-github-danos-aaa-dev,
  golang-github-danos-encoding-rfc7951-dev,
@@ -47,7 +49,6 @@ Description: DANOS config libraries
 
 Package: acmd
 Architecture: any
-Priority: extra
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Access Control
@@ -55,8 +56,7 @@ Description: Access Control
 
 Package: platform-parser
 Architecture: any
-Priority: extra
-Depends:
+Depends: 
   ${shlibs:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Utility for parsing platform files
