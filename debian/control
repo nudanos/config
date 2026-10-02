@@ -57,7 +57,7 @@ Description: Access Control
 Package: platform-parser
 Architecture: any
 Depends: 
-  ${shlibs:Depends}
+  ${shlibs:Depends}, ${misc:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Utility for parsing platform files
  Utility to parse platform files, generating JSON output.
