@@ -23,7 +23,7 @@ override_dh_auto_build: vet
 override_dh_auto_test:
 	dh_auto_test -- $(GORACE) $(GOCOVER)
 
-# We do not vet vendor code.
+# NuDanOS: vet every Go package, vendored code included
 # There's a bug in go vet's detection of interface methods in Go1.10 and earlier
 # that surfaced following restructuring of the modelset_extension code. As this
 # only occurs for Debian 9 / Ubuntu 18.04, and it doesn't seem possible to turn
@@ -35,7 +35,7 @@ vet:
 	else \
 		if go doc cmd/vet >/dev/null 2>&1; then \
 			GOPATH=$(CURDIR)/$(GOBUILDDIR) go vet $$(find . -type f -name \*.go | \
-			xargs dirname | sort -u | grep -v "/vendor/"); \
+			xargs dirname | sort -u); \
 		fi \
 	fi
 
